@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './containers/Home';
+import Header from './components/Header';
+import Hero from './components/Hero';
+
 
 function App() {
   return (
     <div className="App">
-      Andrew Chong
+    	<Header />
+    	<Hero />
+      <Home />
     </div>
   );
 }
