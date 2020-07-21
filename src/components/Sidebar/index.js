@@ -14,7 +14,9 @@ const Sidebar = (props) => {
 	}, [posts]); // Only re-run the effect if post changes
 
 	return (
-		<div className="sidebarContainer">
+		<div className="sidebarContainer" style={{
+			width: props.width
+		}}>
 			<Card style={{marginBottom:'20px', padding:'20px', boxSizing:'border-box'}}>
 				<div className="cardHeader">
 					<span>About Me</span>

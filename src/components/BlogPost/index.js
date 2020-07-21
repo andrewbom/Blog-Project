@@ -13,7 +13,8 @@ const BlogPost = (props) => {
 	  author: "" ,
 	  blogImage: "" ,
 	  blogText: ""
-	});	const [postId, setPostId] = useState('');
+	});	
+	const [postId, setPostId] = useState('');
 	
 	useEffect(() => {
 		const postId = props.match.params.postId;
