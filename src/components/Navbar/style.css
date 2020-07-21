@@ -28,6 +28,7 @@
 .searchInput{
     border: 0;
     width: 0;
+    background-color: #eeeeee;
     transition: width 0.5s ease-in;
 }
 

@@ -16,7 +16,7 @@ function App() {
         <Hero /> 
         <Route path="/" exact component={Home} /> {/* exact means loading with the exact route */}
    			<Route path="/contact-us"  component={ContactUS}/>
-   			<Route path="/post" component={Post} />  
+   			<Route path="/post/:postId" component={Post} />  
       </div>
     </Router>
   );
