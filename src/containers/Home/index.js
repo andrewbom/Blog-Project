@@ -19,22 +19,22 @@ const ImageGallery = props => {
 
 	  	<section style={{ width: '70%' }}>
 	  		<div className="mainImageWrapper">
-	  			<img src={props.imagesArray[0].img} alt=""/>
+	  			<img src={require('../../blogPostImages/' + props.imagesArray[2])} alt=""/>
 	  		</div>
 	    </section> 
 
 	    <section className="sideImageWrapper" style={{ width: '30%' }}>
 	    	<SideImage
 	    		height={props.sideImageHeight}
-	    		src={"https://www.filepicker.io/api/file/goruyGsSeCTvRybevMlO/convert?cache=true&crop=0%2C10%2C1024%2C512"}
+	    		src={require('../../blogPostImages/' + props.imagesArray[1])}
 	  		/>
 	  		<SideImage
 	    		height={props.sideImageHeight}
-	    		src={"https://www.filepicker.io/api/file/goruyGsSeCTvRybevMlO/convert?cache=true&crop=0%2C10%2C1024%2C512"}
+	    		src={require('../../blogPostImages/' + props.imagesArray[0])}
 	  		/>
 	  		<SideImage
 	    		height={props.sideImageHeight}
-	    		src={"https://www.filepicker.io/api/file/goruyGsSeCTvRybevMlO/convert?cache=true&crop=0%2C10%2C1024%2C512"}
+	    		src={require('../../blogPostImages/' + props.imagesArray[3])}
 	  		/>
 
 	    </section> 
@@ -52,7 +52,7 @@ const Home = props => {
 
 	const sideImageHeight = galleryHeight / 3;
 
-	const imgAr = blogData.blog.map(post => post.blogImage)
+	const imgAr = blogData.data.map(post => post.blogImage)
 
 	return (
 		<div>
