@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
 import BlogPost from '../../components/BlogPost';
-import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
+
 
 // import Card from '../../components/UI/Card';
 
@@ -9,10 +10,9 @@ const Post = (props) => {
 	console.log(props);
 
 	return (
-		<section className='container'>
+		<Layout>
 			<BlogPost {...props}/>
-			<Sidebar {...props}/>
-		</section>
+		</Layout>
 	);
 }
 

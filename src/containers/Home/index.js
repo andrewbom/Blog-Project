@@ -1,9 +1,10 @@
 import React from 'react';
 import './style.css';
 import Card from '../../components/UI/Card';
-import Sidebar from '../../components/Sidebar';
 import RecentPosts from './RecentPosts';
 import blogData from '../../data/blog.json';
+import Layout from '../../components/Layout';
+
 
 const SideImage = props => {
 	return (
@@ -17,27 +18,25 @@ const ImageGallery = props => {
 	return (
 		<div className="galleryPost" style={props.galleryStyle}>
 
-	  	<section style={{ width: '70%' }}>
+	  	<section style={{ width: props.largeWidth}}>
 	  		<div className="mainImageWrapper">
-	  			<img src={require('../../blogPostImages/' + props.imagesArray[2])} alt=""/>
+	  			<img src={require('../../blogPostImages/' + props.imagesArray[1])} alt=""/>
 	  		</div>
 	    </section> 
 
-	    <section className="sideImageWrapper" style={{ width: '30%' }}>
-	    	<SideImage
-	    		height={props.sideImageHeight}
-	    		src={require('../../blogPostImages/' + props.imagesArray[1])}
-	  		/>
-	  		<SideImage
-	    		height={props.sideImageHeight}
-	    		src={require('../../blogPostImages/' + props.imagesArray[0])}
-	  		/>
-	  		<SideImage
-	    		height={props.sideImageHeight}
-	    		src={require('../../blogPostImages/' + props.imagesArray[3])}
-	  		/>
-
+	    <section className="sideImageWrapper" style={{ width: props.smallWidth }}>
+	    	
+	    	{
+          props.imagesArray.map(image => 
+	          <SideImage 
+              height={props.sideImageHeight}
+              src={require('../../blogPostImages/' + image)}
+              alt="" 
+	          />
+          )
+        }
 	    </section> 
+
   	</div>
 	);
 }
@@ -51,29 +50,24 @@ const Home = props => {
 	}
 
 	const sideImageHeight = galleryHeight / 3;
-
 	const imgAr = blogData.data.map(post => post.blogImage)
 
 	return (
 		<div>
 		  <Card>
-  		<ImageGallery 
-  			largeWidth="70%"
-  			smallWidth="30%"
-  			sideImageHeight= {sideImageHeight}
-  			galleryStyle = {galleryStyle}
-  			imagesArray={imgAr}
-  		/>
-
+	  		<ImageGallery 
+	  			largeWidth="70%"
+	  			smallWidth="30%"
+	  			sideImageHeight= {sideImageHeight}
+	  			galleryStyle = {galleryStyle}
+	  			imagesArray={imgAr}
+	  		/>
 		  </Card>
 
-		  <section className="HomeContainer">
-
-		  	<RecentPosts style={{width: '70%'}}/>
-		  	<Sidebar />
-
-		  </section>
-
+		  <Layout>
+			 	<RecentPosts style={{width: '70%'}}/>
+		  </Layout>
+		  
 		</div>
 	);
 }
